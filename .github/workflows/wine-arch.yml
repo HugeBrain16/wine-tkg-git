@@ -11,14 +11,6 @@ jobs:
     container: archlinux:latest
 
     steps:
-    - name: Install NTSYNC
-      uses: kopp/build-aur-packages@v1
-      with:
-        packages: >
-          ntsync-dkms
-          ntsync-header
-          ntsync-common
-
     - name: Checkout
       uses: actions/checkout@v4
 
