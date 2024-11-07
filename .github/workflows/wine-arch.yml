@@ -27,8 +27,9 @@ jobs:
         XDG_CACHE_HOME: /tmp/.cache
       run: |
         echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-        pacman -Syu --noconfirm base-devel sudo
+        pacman -Syu --noconfirm base-devel sudo git
         useradd user -G wheel && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+        git clone https://aur.archlinux.org/ntsync.git && cd ntsync && makepkg -si && cd ..
         chown user -R . && cd wine-tkg-git
         sed -i 's/wayland_driver="false"/wayland_driver="true"/' customization.cfg
         su user -c "yes|PKGDEST=/tmp/wine-tkg makepkg --noconfirm -s"
