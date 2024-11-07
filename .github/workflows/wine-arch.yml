@@ -37,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: wine-tkg-build
-          path: /tmp/wine-tkg
+        path: /tmp/wine-tkg
